@@ -20,6 +20,9 @@ inputs:
     description: 'Actor who did the action'
     default: ${{ github.actor }}
 
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
 branding:
   icon: 'bell'  
   color: 'blue'
