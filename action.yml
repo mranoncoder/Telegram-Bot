@@ -1,0 +1,28 @@
+name: 'Telegram-Bot'
+description: 'Send GitHub Updates to Telegram, see readme for step by step instructions'
+author: 'MrAnonCoder'
+inputs: 
+  chat: 
+    description: 'Chat to send: chat id or @channel_name/add to secrets'
+    default: # ${{ secrets.chat }}
+    required: True
+  token: 
+    description: 'Telegram Bot token/add to secrets'
+    default: # ${{ secrets.token }}
+    required: True
+  status: 
+    description: 'Job status'
+    default: ${{ job.status }}
+  event: 
+    description: 'Event triggered action'
+    default: ${{ github.event_name }}
+  actor: 
+    description: 'Actor who did the action'
+    default: ${{ github.actor }}
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'bell'  
+  color: 'blue'
