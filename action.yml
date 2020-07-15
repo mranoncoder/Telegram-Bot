@@ -47,7 +47,6 @@ inputs:
 runs:
   using: "node12"
   main: "2.js"
-  
 branding:
   icon: 'repeat'
   color: 'green'
