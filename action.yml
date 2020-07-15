@@ -1,27 +1,52 @@
-name: 'Telegram-Bot'
-description: 'Send GitHub Updates to Telegram, see readme for step by step instructions'
-author: 'MrAnonCoder'
+name: 'Telegram-bot'
+description: 'Connect your GitHub Repo to Telegram'
+author: 'athul'
 inputs: 
-  chat: 
-    description: 'Chat to send: chat id or @channel_name/add to secrets'
-    default: # ${{ secrets.chat }}
-    required: True
-  token: 
-    description: 'Telegram Bot token/add to secrets'
-    default: # ${{ secrets.token }}
-    required: True
-  status: 
+  chat:
+    description: 'Chat to send: chat id or @channel_name'
+    required: true
+  token:
+    description: 'Telegram Bot token'
+    required: true
+  status:
     description: 'Job status'
-    default: ${{ job.status }}
-  event: 
-    description: 'Event triggered action'
-    default: ${{ github.event_name }}
-  actor: 
-    description: 'Actor who did the action'
-    default: ${{ github.actor }}
+    required: true
+  stargazers:
+    description: 'Get Stars of the Repo'
+    default: ${{ github.event.repository.stargazers_count }}
+  forkers:
+    description: 'Number of Forks'
+    default: ${{ github.event.repository.forks_count }}
+  iu_title: 
+    description: 'Issue Title'
+    default: ${{ github.event.issue.title }}
+  iu_num:
+    description: 'Issue Number'
+    default: ${{ github.event.issue.number }}
+  iu_actor: 
+    description: 'Issue Triggerer'
+    default: ${{ github.event.issue.user.login }}
+  iu_body:
+    description: 'Issue Body'
+    default: ${{ github.event.issue.body }}
+  iu_com:
+    description: 'Issue Comment'
+    default: ${{github.event.comment.body}}
+  pr_state:
+    description: 'State of the PR'
+    default: ${{ github.event.action }}
+  pr_num:
+    description: 'PR Number'
+    default: ${{ github.event.number }}
+  pr_title:
+    description: 'Title of the PR'
+    default: ${{ github.event.pull_request.title }}
+  pr_body:
+    description: 'Body/Contents of the PR'
+    default: ${{ github.event.pull_request.body }}
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "node12"
+  main: "dist/index.js"
 branding:
-  icon: 'bell'  
-  color: 'blue'
+  icon: 'repeat'  
+  color: 'green'
