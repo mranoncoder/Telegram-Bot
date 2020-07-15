@@ -1,0 +1,25 @@
+name: Get Status in Telegram
+on:
+  push:
+  pull_request:
+    types: [opened,closed]
+  issues:
+    types: [opened, closed, reopened]
+  issue_comment:
+    types: [created]
+  watch:
+    types: [started]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      
+    - name: Statusoli
+      uses: mranoncoder/Telegram-Bot@master
+      if: always()
+      with:
+        chat: 189639606 
+        token: 1392949594:AAF-t06LbH33jUIVDSrcJNUaA0agG4wTH5Y 
+        status: ${{ job.status }}
