@@ -10,6 +10,6 @@ RUN CGO_ENABLED=0 go build -v -o TelegramBridge .
 
 FROM alpine:latest
 
-COPY --from=builder /app/TelegramBridge /TelegramBridge
+COPY --from=builder /app/Telegram-Bot /Telegram-Bot
 
-ENTRYPOINT ["/TelegramBridge"]
+ENTRYPOINT ["/Telegram-Bot"]
