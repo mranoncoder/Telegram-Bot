@@ -46,7 +46,7 @@ inputs:
     default: ${{ github.event.pull_request.body }}
 runs:
   using: "node12"
-  main: "2.js"
+  main: "dist/index.js"
 branding:
   icon: 'repeat'
   color: 'green'
