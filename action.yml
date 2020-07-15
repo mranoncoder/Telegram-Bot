@@ -1,7 +1,7 @@
 name: 'Telegram-bot'
 description: 'Connect your GitHub Repo to Telegram'
 author: 'athul'
-inputs: 
+inputs:
   chat:
     description: 'Chat to send: chat id or @channel_name'
     required: true
@@ -17,13 +17,13 @@ inputs:
   forkers:
     description: 'Number of Forks'
     default: ${{ github.event.repository.forks_count }}
-  iu_title: 
+  iu_title:
     description: 'Issue Title'
     default: ${{ github.event.issue.title }}
   iu_num:
     description: 'Issue Number'
     default: ${{ github.event.issue.number }}
-  iu_actor: 
+  iu_actor:
     description: 'Issue Triggerer'
     default: ${{ github.event.issue.user.login }}
   iu_body:
@@ -46,7 +46,7 @@ inputs:
     default: ${{ github.event.pull_request.body }}
 runs:
   using: "node12"
-  main: "dist/index.js"
+  main: "2.js"
 branding:
-  icon: 'repeat'  
+  icon: 'repeat'
   color: 'green'
