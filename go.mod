@@ -1,4 +1,4 @@
-module github.com/athul/tg
+module github.com/mranoncoder/Telegram-Bot
 
 go 1.13
 
