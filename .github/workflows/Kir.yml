@@ -20,6 +20,6 @@ jobs:
       uses: mranoncoder/Telegram-Bot@master
       if: always()
       with:
-        chat: 189639606 
-        token: 1392949594:AAF-t06LbH33jUIVDSrcJNUaA0agG4wTH5Y 
+        chat: ${{ secrets.ADMINUSERID }}
+        token: ${{ secrets.BOTTOKEN }}
         status: ${{ job.status }}
